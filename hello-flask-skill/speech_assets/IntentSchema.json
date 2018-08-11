@@ -1,0 +1,36 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "hello flask",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hey",
+                        "hi",
+                        "hello",
+                        "hello world"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
