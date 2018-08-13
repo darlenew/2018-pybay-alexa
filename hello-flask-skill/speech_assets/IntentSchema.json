@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "hello flask",
+            "invocationName": "hello world",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -21,12 +21,21 @@
                 },
                 {
                     "name": "HelloWorldIntent",
-                    "slots": [],
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.US_FIRST_NAME"
+                        }
+                    ],
                     "samples": [
-                        "hey",
-                        "hi",
+                        "greet {name}",
+                        "tell {name} hello",
+                        "say hello to {name}",
+                        "how's it going",
+                        "what's up",
                         "hello",
-                        "hello world"
+                        "hey",
+                        "hi"
                     ]
                 }
             ],

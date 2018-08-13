@@ -12,20 +12,27 @@ logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 @ask.launch
 def launch():
-    speech_text = 'Welcome to the Alexa Skills Kit, you can say hello'
+    speech_text = 'Welcome to Hello World, you can say hello'
     return question(speech_text).reprompt(speech_text).simple_card('HelloWorld', speech_text)
 
 
 @ask.intent('HelloWorldIntent')
-def hello_world():
-    speech_text = 'Hello world'
-    return statement(speech_text).simple_card('HelloWorld', speech_text)
+def hello_world(name=None):
+    name = "world" if name is None else name
+    speech_text = f'Hello {name}'
+    return question(speech_text).simple_card('HelloWorld', speech_text)
 
 
 @ask.intent('AMAZON.HelpIntent')
 def help():
-    speech_text = 'You can say hello to me!'
+    speech_text = 'You can say hello to me, or ask me to say hello to someone!'
     return question(speech_text).reprompt(speech_text).simple_card('HelloWorld', speech_text)
+
+
+@ask.intent('AMAZON.StopIntent')
+def stop():
+    stop_text = 'Goodbye world!'
+    return statement(stop_text)
 
 
 @ask.session_ended
