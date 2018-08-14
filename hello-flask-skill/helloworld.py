@@ -16,10 +16,9 @@ def launch():
     return question(speech_text)
 
 
-@ask.intent('HelloWorldIntent')
-def hello_world(name=None):
-    name = "world" if name is None else name
-    speech_text = f'Hello {name}'
+@ask.intent('HelloWorldIntent', default={'name': 'World'})
+def hello_world(name):
+    speech_text = f'Hello, {name}'
     return question(speech_text)
 
 
