@@ -12,12 +12,18 @@ logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 @ask.launch
 def launch():
-    speech_text = 'Welcome to Hello World, you can say hello'
+    speech_text = 'Welcome to Hello World, you can say hello, or tell me who to say hello to.'
     return question(speech_text)
 
 
-@ask.intent('HelloWorldIntent', default={'name': 'World'})
-def hello_world(name):
+@ask.intent('HelloWorldIntent')
+def hello_world():
+    speech_text = 'Hello, world!'
+    return question(speech_text)
+
+
+@ask.intent('HelloNameIntent', default={'name': 'World'})
+def hello_name(name):
     speech_text = f'Hello, {name}'
     return question(speech_text)
 
